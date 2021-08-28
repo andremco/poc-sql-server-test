@@ -1,5 +1,3 @@
-USE tempdb
-
 IF OBJECT_ID('dbo.call', 'U') IS NOT NULL 
   DROP TABLE dbo.call; 
 

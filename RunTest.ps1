@@ -16,7 +16,7 @@ $data = New-Object System.Data.DataSet
 $adp.Fill($data) | Out-Null
 
 # Query in table customer  
-$sqlcmd = ExecuteTSQL -sqlConnection $sqlConnection -sql "SELECT id, customer_name FROM [tempdb].[dbo].[customer]"
+$sqlcmd = ExecuteTSQL -sqlConnection $sqlConnection -sql "SELECT id, customer_name FROM [dbo].[customer]"
 $adp = New-Object System.Data.SqlClient.SqlDataAdapter $sqlcmd
 $data = New-Object System.Data.DataSet
 $adp.Fill($data) | Out-Null

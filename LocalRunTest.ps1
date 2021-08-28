@@ -1,7 +1,8 @@
 . .\Functions.ps1
 
 # set variables
-$connectionString = "Server=(localdb)\MSSQLLocalDB;Integrated Security=true;"
+$connectionString = "Server=(localdb)\MSSQLLocalDB;Integrated Security=true;Initial Catalog=tempdb;"
+
 $sqlFile = "./database/tempdb.sql"
 
 . .\RunTest.ps1

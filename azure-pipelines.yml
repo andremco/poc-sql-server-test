@@ -7,13 +7,19 @@ trigger:
 - main
 
 pool:
-  vmImage: ubuntu-latest
+  vmImage: "windows-latest"
 
-steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
-
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+stages:
+- stage: PipelineSqlServerTest
+  displayName: Pipeline Sql Server
+  jobs: 
+  - job: PipelineSqlServer
+    steps:
+    - task: PowerShell@2
+      displayName: Run Script for sql server test - $(ProjectName) $(Version)
+      inputs:
+        filePath: './DevOpsRunTest.ps1'
+      timeoutInMinutes: 10
+      continueOnError: false
+      env:
+        CONNECTIONSTRING: $(CONNECTIONSTRING) 
