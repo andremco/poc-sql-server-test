@@ -34,3 +34,11 @@ stages:
       continueOnError: false
       env:
         CONNECTIONSTRING: $(CONNECTIONSTRING) 
+
+    - task: AzureCLI@2
+      inputs:
+        azureSubscription: 'Visual Studio Enterprise(1)(e945f6ed-8c00-4129-8ecd-263ec98eaf36)'
+        scriptType: 'ps'
+        scriptLocation: 'scriptPath'
+        scriptPath: './DevOpsRunTest.ps1'
+    
