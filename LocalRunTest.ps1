@@ -1,5 +1,3 @@
-. .\Functions.ps1
-
 # set variables
 $connectionString = "Server=(localdb)\MSSQLLocalDB;Integrated Security=true;Initial Catalog=tempdb;"
 
