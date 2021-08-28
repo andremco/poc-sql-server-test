@@ -13,19 +13,14 @@ stages:
 - stage: PipelineSqlServerTest
   displayName: Pipeline Sql Server
   jobs: 
-  - job: Test
+  - job: PipelineSqlServer
     steps:
     - task: AzureCLI@2
       inputs:
-        azureSubscription: $(AZSUBSCRIPTION)
-        scriptType: pscore
-        scriptLocation: inlineScript
-        inlineScript: |
-          # Set firewall on server open for the agent
-          $agentIp = (New-Object net.webclient).downloadstring("http://checkip.dyndns.com") -replace "[^\d\.]"
-          az sql server firewall-rule create -g $(rg) -s $(server) -n test --start-ip-address $agentIp --end-ip-address $agentIp  
-  - job: PipelineSqlServer
-    steps:
+        azureSubscription: 'Visual Studio Enterprise(1)(e945f6ed-8c00-4129-8ecd-263ec98eaf36)'
+        scriptType: 'ps'
+        scriptLocation: 'scriptPath'
+        scriptPath: './DevOpsRunTest.ps1'
     - task: PowerShell@2
       displayName: Run Script for sql server test - $(ProjectName) $(Version)
       inputs:
@@ -35,10 +30,4 @@ stages:
       env:
         CONNECTIONSTRING: $(CONNECTIONSTRING) 
 
-    - task: AzureCLI@2
-      inputs:
-        azureSubscription: 'Visual Studio Enterprise(1)(e945f6ed-8c00-4129-8ecd-263ec98eaf36)'
-        scriptType: 'ps'
-        scriptLocation: 'scriptPath'
-        scriptPath: './DevOpsRunTest.ps1'
     
