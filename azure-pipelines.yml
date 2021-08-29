@@ -33,7 +33,7 @@ stages:
         script: |
           # Write your PowerShell commands here.
           
-          Write-Host "Print in case for success"
+          Write-Host "Print in case for success :)"
  
 
     
