@@ -34,6 +34,10 @@ stages:
           # Write your PowerShell commands here.
           
           Write-Host "Print in case for success :)"
+    - task: DotNetCoreCLI@2
+      inputs:
+        command: 'build'
+        projects: './src'
  
 
     
