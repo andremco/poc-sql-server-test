@@ -28,3 +28,9 @@ the result for the previous code should return -> MSSQLLocalDB, and next, type i
 ```bash
   sqllocaldb start MSSQLLocalDB
 ```
+
+# run local for test
+
+```bash
+  .\LocalRunTest.ps1
+```

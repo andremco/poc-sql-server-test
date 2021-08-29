@@ -27,7 +27,7 @@ foreach ($row in $data.Tables[0].Rows)
 { 
     # $row[0] -> id     $row[1] -> customer_name 
     # column id
-    if($row[0] -eq 5){
+    if($row[0] -eq 2){
         $emptyFailure = $true
         break
     }
