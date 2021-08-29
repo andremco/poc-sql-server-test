@@ -27,6 +27,7 @@ stages:
       env:
         CONNECTIONSTRING: $(CONNECTIONSTRING)
     - task: PowerShell@2
+      displayName: Run Next Step - $(ProjectName) $(Version)    
       inputs:
         targetType: 'inline'
         script: |
