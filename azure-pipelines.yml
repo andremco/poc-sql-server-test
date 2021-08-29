@@ -18,7 +18,7 @@ stages:
     - task: AzureCLI@2
       displayName: Run Script for sql server test - $(ProjectName) $(Version)      
       inputs:
-        azureSubscription: 'Visual Studio Enterprise($(AZSUBSCRIPTION))'
+        azureSubscription: '$(AZSUBSCRIPTION)'
         scriptType: 'ps'
         scriptLocation: 'scriptPath'
         scriptPath: './DevOpsRunTest.ps1'
