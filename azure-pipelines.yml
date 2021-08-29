@@ -16,18 +16,17 @@ stages:
   - job: PipelineSqlServer
     steps:
     - task: AzureCLI@2
+      displayName: Run Script for sql server test - $(ProjectName) $(Version)      
       inputs:
-        azureSubscription: 'Visual Studio Enterprise(1)(e945f6ed-8c00-4129-8ecd-263ec98eaf36)'
+        azureSubscription: '$(AZSUBSCRIPTION)'
         scriptType: 'ps'
         scriptLocation: 'scriptPath'
         scriptPath: './DevOpsRunTest.ps1'
-    - task: PowerShell@2
-      displayName: Run Script for sql server test - $(ProjectName) $(Version)
-      inputs:
-        filePath: './DevOpsRunTest.ps1'
       timeoutInMinutes: 10
-      continueOnError: false
+      continueOnError: false  
       env:
-        CONNECTIONSTRING: $(CONNECTIONSTRING) 
+        CONNECTIONSTRING: $(CONNECTIONSTRING)
+
+ 
 
     
