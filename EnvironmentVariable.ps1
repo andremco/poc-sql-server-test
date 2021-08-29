@@ -9,3 +9,5 @@ if ([string]::IsNullOrEmpty($nameSqlServerAZ)) { throw("Empty var nameSqlServerA
 
 $versionPipe = $env:VERSION
 if ([string]::IsNullOrEmpty($versionPipe)) { throw("Empty var versionPipe!") }
+
+$sqlFile = "./database/tempdb.sql"
