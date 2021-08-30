@@ -35,9 +35,17 @@ stages:
           
           Write-Host "Print in case for success :)"
     - task: DotNetCoreCLI@2
+      displayName: dotnet build --configuration $(buildConfiguration)
       inputs:
         command: 'build'
         projects: './src'
+        arguments: '--configuration $(buildConfiguration)'
+
+    - task: DotNetCoreCLI@2
+      displayName: dotnet test
+      inputs:
+        command: 'test'
+        projects: './src/test'
  
 
     
