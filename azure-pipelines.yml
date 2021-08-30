@@ -45,7 +45,8 @@ stages:
       displayName: dotnet test
       inputs:
         command: 'test'
-        projects: './src/test'
+        projects: '**/*Tests/*.csproj'
+        arguments:  '--configuration $(BUILDCONFIGURATION) --collect "Code coverage"'
  
 
     
