@@ -11,17 +11,14 @@ pool:
 
 stages:
 - stage: PipelineSqlServerTest
-  displayName: Pipeline Sql Server
+  displayName: Pipeline Sql Server TSQLt
   jobs: 
   - job: PipelineSqlServer
     steps:
-    - task: AzureCLI@2
-      displayName: Run Script for sql server test - $(ProjectName) $(Version)      
-      inputs:
-        azureSubscription: 'Visual Studio Enterprise(e945f6ed-8c00-4129-8ecd-263ec98eaf36)'
-        scriptType: 'ps'
-        scriptLocation: 'scriptPath'
-        scriptPath: './DevOpsRunTest.ps1'
+    - task: PowerShell@2
+      displayName: Run Script for sql server test - $(ProjectName) $(Version) 
+      inputs:     
+        filePath: './DevOpsRunTest.ps1'
       timeoutInMinutes: 10
       continueOnError: false  
       env:
@@ -40,7 +37,6 @@ stages:
         command: 'build'
         projects: './src'
         arguments: '--configuration $(BUILDCONFIGURATION)'
-
     - task: DotNetCoreCLI@2
       displayName: dotnet test
       inputs:
