@@ -23,6 +23,8 @@ stages:
       continueOnError: false  
       env:
         CONNECTIONSTRING: $(CONNECTIONSTRING)
+    - task: PublishTestResults@2
+      displayName: 'Publish Test Results **/TEST-*.xml'        
     - task: PowerShell@2
       displayName: Run Next Step - $(ProjectName) $(Version)    
       inputs:
