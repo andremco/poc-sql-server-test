@@ -24,4 +24,4 @@ $connection.Close()
 
 Write-Host "Default Working Dir: " $env:SYSTEM_DEFAULTWORKINGDIRECTORY
 
-$dataSet.Tables[0].Rows[0].ItemArray[0] | Out-File "${env:SYSTEM_DEFAULTWORKINGDIRECTORY}/_publish-CI/drop/TEST-tempdb.xml"
+$dataSet.Tables[0].Rows[0].ItemArray[0] | Out-File "${env:SYSTEM_DEFAULTWORKINGDIRECTORY}/TEST-tempdb.xml"
