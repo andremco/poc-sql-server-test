@@ -1,13 +1,16 @@
 $connectionString = $env:CONNECTIONSTRING
-if ([string]::IsNullOrEmpty($connectionString)) { throw("Empty var connectionString!") }
+if ([string]::IsNullOrEmpty($connectionString)) { 
+    $connectionString = "Server=(localdb)\MSSQLLocalDB;Integrated Security=true;Initial Catalog=tempdb;"
+}
 
-$resGroup = $env:RESOURCEGROUP
-if ([string]::IsNullOrEmpty($resGroup)) { throw("Empty var resGroup!") }
+$nameServer = $env:NAMESERVER
+if ([string]::IsNullOrEmpty($nameServer)) { 
+    $nameServer = "(localdb)\MSSQLLocalDB"
+}
 
-$nameSqlServerAZ = $env:NAMESQLSERVERAZ
-if ([string]::IsNullOrEmpty($nameSqlServerAZ)) { throw("Empty var nameSqlServerAZ!") }
+$sqlPrepareServer = "./tsqlt/PrepareServer.sql"
 
-$versionPipe = $env:VERSION
-if ([string]::IsNullOrEmpty($versionPipe)) { throw("Empty var versionPipe!") }
+$sqlExample = "./tsqlt/Example.sql"
 
-$sqlFile = "./database/tempdb.sql"
+$sqlRunAll = "./tsqlt/RunAll.sql"
+
