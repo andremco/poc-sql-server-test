@@ -1,4 +1,4 @@
-USE tSQLt_Example
+USE tempdb
 GO 
 
 EXEC tSQLt.RunAll

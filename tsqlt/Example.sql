@@ -13,25 +13,30 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 */
+
+-- commented part because local db on azure devops needs permission to create database
+-- USE tempdb;
+-- IF(db_id('tSQLt_Example') IS NOT NULL)
+-- EXEC('
+-- ALTER DATABASE tSQLt_Example SET RESTRICTED_USER WITH ROLLBACK IMMEDIATE;
+-- USE tSQLt_Example;
+-- ALTER DATABASE tSQLt_Example SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
+-- USE tempdb;
+-- DROP DATABASE tSQLt_Example;
+-- ');
+-- CREATE DATABASE tSQLt_Example WITH TRUSTWORTHY ON;
+-- GO
+-- USE tSQLt_Example;
+-- GO
+
 USE tempdb;
-
-IF(db_id('tSQLt_Example') IS NOT NULL)
-EXEC('
-ALTER DATABASE tSQLt_Example SET RESTRICTED_USER WITH ROLLBACK IMMEDIATE;
-USE tSQLt_Example;
-ALTER DATABASE tSQLt_Example SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
-USE tempdb;
-DROP DATABASE tSQLt_Example;
-');
-
-CREATE DATABASE tSQLt_Example WITH TRUSTWORTHY ON;
 GO
-USE tSQLt_Example;
-GO
-
 
 ------------------------------------------------------------------------------------
-CREATE SCHEMA Accelerator;
+IF NOT EXISTS ( SELECT  *
+                FROM    sys.schemas
+                WHERE   name = N'Accelerator' )
+    EXEC('CREATE SCHEMA [Accelerator]');
 GO
 
 IF OBJECT_ID('Accelerator.Particle') IS NOT NULL DROP TABLE Accelerator.Particle;
