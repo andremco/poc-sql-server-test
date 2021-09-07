@@ -20,7 +20,7 @@ stages:
       inputs:     
         filePath: './DevOpsRunTest.ps1'
       timeoutInMinutes: 10
-      continueOnError: false  
+      continueOnError: true  
       env:
         CONNECTIONSTRING: $(CONNECTIONSTRING)
     - task: PublishTestResults@2
