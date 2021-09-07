@@ -17,7 +17,7 @@ catch {
 try 
 {
     #  Execute the following script to run all the example tests
-    Invoke-Sqlcmd -ServerInstance $nameServer -InputFile $sqlRunAll -Verbose -ErrorAction Stop
+    Invoke-Sqlcmd -ServerInstance $nameServer -InputFile $sqlRunAll -Verbose
 }
 catch
 {
