@@ -21,4 +21,7 @@ $dataset = New-Object System.Data.DataSet
 $adapter.Fill($dataSet) | Out-Null
 
 $connection.Close()
-$dataSet.Tables[0].Rows[0].ItemArray[0] | Out-File "$(System.DefaultWorkingDirectory)/_publish-CI/drop/TEST-tempdb.xml"
+
+Write-Host "Default Working Dir: " + $env:SYSTEM_DEFAULTWORKINGDIRECTORY
+
+$dataSet.Tables[0].Rows[0].ItemArray[0] | Out-File "$(env:SYSTEM_DEFAULTWORKINGDIRECTORY)/_publish-CI/drop/TEST-tempdb.xml"
