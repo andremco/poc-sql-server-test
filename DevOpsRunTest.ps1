@@ -10,6 +10,6 @@
 
 choco install sql-server-express
 
+$connectionString = "Server=(localdb)\MSSQLLocalDB;Integrated Security=true;Initial Catalog=tempdb;"
 
-
-# . .\RunTest.ps1
+. .\RunTest.ps1
