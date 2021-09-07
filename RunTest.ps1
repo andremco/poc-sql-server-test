@@ -17,12 +17,12 @@ catch {
 try 
 {
     #  Execute the following script to run all the example tests
-    Invoke-Sqlcmd -ServerInstance $nameServer -InputFile $sqlRunAll -Verbose
+    Invoke-Sqlcmd -ServerInstance $nameServer -InputFile $sqlRunAll -Verbose -ErrorAction Stop 
 }
 catch
 {
-    Write-Error "Failed tests tsqlt :("
-    Write-Error $_
+    Write-Warning "Failed tests tsqlt :("
+    Write-Warning $_
 }
 
 . .\PublishTestsTSQLt.ps1
