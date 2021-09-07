@@ -8,6 +8,11 @@ if ([string]::IsNullOrEmpty($nameServer)) {
     $nameServer = "(localdb)\MSSQLLocalDB"
 }
 
+$defaultWorkingDir = $env:SYSTEM_DEFAULTWORKINGDIRECTORY
+if ([string]::IsNullOrEmpty($defaultWorkingDir)) { 
+    $defaultWorkingDir = "./"
+}
+
 $sqlPrepareServer = "./tsqlt/PrepareServer.sql"
 
 $sqlExample = "./tsqlt/Example.sql"

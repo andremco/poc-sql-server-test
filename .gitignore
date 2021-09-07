@@ -474,3 +474,5 @@ typings/
 docker-compose.override.yml
 
 **/Properties/
+
+TEST-*.xml
