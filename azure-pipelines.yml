@@ -40,5 +40,6 @@ stages:
         command: 'build'
         projects: './src'
         arguments: '--configuration $(BUILDCONFIGURATION)'
+      condition: and(failed(), eq(variables['Agent.JobStatus'], 'SucceededWithIssues'))
 
     
