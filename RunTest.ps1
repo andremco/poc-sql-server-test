@@ -21,8 +21,8 @@ try
 }
 catch
 {
-    Write-Warning "Failed tests tsqlt :("
-    Write-Warning $_
+    Write-Error "Failed tests tsqlt :("
+    Write-Error $_
 }
 
 . .\PublishTestsTSQLt.ps1
