@@ -21,7 +21,7 @@ try
 }
 catch
 {
-    Write-Error "Failed tests tsqlt :("
+    "Failed tests tsqlt :("
     Write-Error $_
 }
 
