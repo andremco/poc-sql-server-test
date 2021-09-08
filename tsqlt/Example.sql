@@ -4665,7 +4665,7 @@ BEGIN
   SELECT @Ready = Accelerator.IsExperimentReady();
   
   --Assert: Check that 1 is returned from IsExperimentReady
-  EXEC tSQLt.AssertEquals 1, @Ready;
+  EXEC tSQLt.AssertEquals 0, @Ready;
   
 END;
 GO
