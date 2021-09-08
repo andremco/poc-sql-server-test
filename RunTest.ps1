@@ -18,13 +18,16 @@ try
 {
     #  Execute the following script to run all the example tests
     Invoke-Sqlcmd -ServerInstance $nameServer -InputFile $sqlRunAll -Verbose -ErrorAction Stop 
+    . .\PublishTestsTSQLt.ps1
+    $sw.Stop()
+    write-host "Build time: " $sw.Elapsed.ToString()
 }
 catch
 {
+    . .\PublishTestsTSQLt.ps1
+    $sw.Stop()
+    write-host "Build time: " $sw.Elapsed.ToString()
     "Failed tests tsqlt :("
     Write-Error $_
 }
 
-. .\PublishTestsTSQLt.ps1
-$sw.Stop()
-write-host "Build time: " $sw.Elapsed.ToString()
