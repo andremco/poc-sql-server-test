@@ -39,12 +39,6 @@ stages:
         command: 'build'
         projects: './src'
         arguments: '--configuration $(BUILDCONFIGURATION)'
-    - task: DotNetCoreCLI@2
-      displayName: dotnet test
-      inputs:
-        command: 'test'
-        projects: '**/*Tests/*.csproj'
-        arguments:  '--configuration $(BUILDCONFIGURATION) --collect "Code coverage"'
- 
+        condition: and(succeeded())
 
     
