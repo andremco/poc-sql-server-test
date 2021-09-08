@@ -33,13 +33,13 @@ stages:
           # Write your PowerShell commands here.
           
           Write-Host "Print in case for success :)"
-      condition: and(failed(), eq(variables['Agent.JobStatus'], 'SucceededWithIssues')) 
+      condition: eq(variables['Agent.JobStatus'], 'Succeeded')
     - task: DotNetCoreCLI@2
       displayName: dotnet build --configuration $(BUILDCONFIGURATION)
       inputs:
         command: 'build'
         projects: './src'
         arguments: '--configuration $(BUILDCONFIGURATION)'
-      condition: and(failed(), eq(variables['Agent.JobStatus'], 'SucceededWithIssues'))
+      condition: eq(variables['Agent.JobStatus'], 'Succeeded')
 
     
