@@ -33,12 +33,12 @@ stages:
           # Write your PowerShell commands here.
           
           Write-Host "Print in case for success :)"
+      condition: and(succeeded())          
     - task: DotNetCoreCLI@2
       displayName: dotnet build --configuration $(BUILDCONFIGURATION)
       inputs:
         command: 'build'
         projects: './src'
         arguments: '--configuration $(BUILDCONFIGURATION)'
-        condition: and(succeeded())
 
     
